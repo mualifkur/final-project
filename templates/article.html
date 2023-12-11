@@ -2,20 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Judul Artikel Anda</title>
+    <style>
+        /* Tambahkan gaya CSS sesuai kebutuhan */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        article {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        footer {
+            background-color: #3399ff;
+            padding: 10px 0;
+            text-align: center;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-    <h1> Artikel </h1>
 
-    <h2>Artikel Terbaru:</h2>
-    {% for article in articles %}
-        <h3>{{ article.title }}</h3>
-        <img src="{{ url_for('static', filename='images/' + article.image) }}" alt="{{ article.title }}" style="max-width: 300px;"><br>
-        <p>{{ article.content }}</p>
+    <header>
+        
+    </header>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary sticky-top" id="navbar">
+		<div class="container">
+			<!-- <h1><a href="#" class="navbar-brand">Heavy coding</a></h1> -->
+            <a class="navbar-brand" href="#">
+                <img src="logo.png" alt="logo" style="width:80px; height:50px;">
+            </a>
+			<button class="navbar-toggler" data-toggle="collapse" data-target="#mynav" >
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="mynav">
+				<ul class="navbar-nav ml-auto text-center">
+                    <li class="nav-item"><a class="nav-link" href="">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="#" style="color:#fff;">Article</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Forum Discussion</a></li>
+                    <li class="nav-item"><a class="nav-link" href="">Login</a></li>
+				</ul>
+                
+			</div>
+		</div>
+	</nav>
+
+
+    <article>
+        <h1>Judul Artikel Anda</h1>
+
+        <img src="https://www.deherba.com/wp-content/uploads/2015/05/71a42ae7863301ba46b5e226eaecf171.jpg" alt="Deskripsi Gambar">
+
+        <p>Ini adalah paragraf pertama artikel Anda.</p>
         <a href="{{ url_for('article_detail', title=article.title) }}"><button>Read More</button></a>
-        <hr>
-    {% endfor %}
+
+    </article>
+
+    <footer>
+        <p>&copy; 2023 Nama Anda. Hak Cipta Dilindungi.</p>
+    </footer>
 
 </body>
 </html>
