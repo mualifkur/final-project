@@ -6,6 +6,16 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>artikelllll</h1>
+    <h1> Artikel </h1>
+
+    <h2>Artikel Terbaru:</h2>
+    {% for article in articles %}
+        <h3>{{ article.title }}</h3>
+        <img src="{{ url_for('static', filename='images/' + article.image) }}" alt="{{ article.title }}" style="max-width: 300px;"><br>
+        <p>{{ article.content }}</p>
+        <a href="{{ url_for('article_detail', title=article.title) }}"><button>Read More</button></a>
+        <hr>
+    {% endfor %}
+
 </body>
 </html>
